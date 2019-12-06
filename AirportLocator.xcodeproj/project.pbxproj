@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2E04F92239AD2BE00B39195 /* AirportsNearbyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F8C239AD2BE00B39195 /* AirportsNearbyPresenter.swift */; };
+		C2E04F93239AD2BE00B39195 /* AirportsNearbyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F8D239AD2BE00B39195 /* AirportsNearbyWorker.swift */; };
+		C2E04F94239AD2BE00B39195 /* AirportsNearbyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F8E239AD2BE00B39195 /* AirportsNearbyRouter.swift */; };
+		C2E04F95239AD2BE00B39195 /* AirportsNearbyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F8F239AD2BE00B39195 /* AirportsNearbyModels.swift */; };
+		C2E04F96239AD2BE00B39195 /* AirportsNearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F90239AD2BE00B39195 /* AirportsNearbyViewController.swift */; };
+		C2E04F97239AD2BE00B39195 /* AirportsNearbyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E04F91239AD2BE00B39195 /* AirportsNearbyInteractor.swift */; };
 		C2F0E44D239A99C00043774E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F0E44C239A99C00043774E /* AppDelegate.swift */; };
 		C2F0E44F239A99C00043774E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F0E44E239A99C00043774E /* SceneDelegate.swift */; };
-		C2F0E451239A99C00043774E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F0E450239A99C00043774E /* ViewController.swift */; };
 		C2F0E454239A99C00043774E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F0E452239A99C00043774E /* Main.storyboard */; };
 		C2F0E456239A99C20043774E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F0E455239A99C20043774E /* Assets.xcassets */; };
 		C2F0E459239A99C20043774E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F0E457239A99C20043774E /* LaunchScreen.storyboard */; };
@@ -27,10 +32,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2E04F8C239AD2BE00B39195 /* AirportsNearbyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyPresenter.swift; sourceTree = "<group>"; };
+		C2E04F8D239AD2BE00B39195 /* AirportsNearbyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyWorker.swift; sourceTree = "<group>"; };
+		C2E04F8E239AD2BE00B39195 /* AirportsNearbyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyRouter.swift; sourceTree = "<group>"; };
+		C2E04F8F239AD2BE00B39195 /* AirportsNearbyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyModels.swift; sourceTree = "<group>"; };
+		C2E04F90239AD2BE00B39195 /* AirportsNearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyViewController.swift; sourceTree = "<group>"; };
+		C2E04F91239AD2BE00B39195 /* AirportsNearbyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsNearbyInteractor.swift; sourceTree = "<group>"; };
 		C2F0E449239A99C00043774E /* AirportLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirportLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F0E44C239A99C00043774E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F0E44E239A99C00043774E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2F0E450239A99C00043774E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2F0E453239A99C00043774E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2F0E455239A99C20043774E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2F0E458239A99C20043774E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +68,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2E04F8A239AD28C00B39195 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C2E04F8B239AD29200B39195 /* AirportsNearby */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C2E04F8B239AD29200B39195 /* AirportsNearby */ = {
+			isa = PBXGroup;
+			children = (
+				C2E04F8C239AD2BE00B39195 /* AirportsNearbyPresenter.swift */,
+				C2E04F8D239AD2BE00B39195 /* AirportsNearbyWorker.swift */,
+				C2E04F8E239AD2BE00B39195 /* AirportsNearbyRouter.swift */,
+				C2E04F8F239AD2BE00B39195 /* AirportsNearbyModels.swift */,
+				C2E04F90239AD2BE00B39195 /* AirportsNearbyViewController.swift */,
+				C2E04F91239AD2BE00B39195 /* AirportsNearbyInteractor.swift */,
+			);
+			path = AirportsNearby;
+			sourceTree = "<group>";
+		};
 		C2F0E440239A99C00043774E = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +110,9 @@
 		C2F0E44B239A99C00043774E /* AirportLocator */ = {
 			isa = PBXGroup;
 			children = (
+				C2E04F8A239AD28C00B39195 /* Scenes */,
 				C2F0E44C239A99C00043774E /* AppDelegate.swift */,
 				C2F0E44E239A99C00043774E /* SceneDelegate.swift */,
-				C2F0E450239A99C00043774E /* ViewController.swift */,
 				C2F0E452239A99C00043774E /* Main.storyboard */,
 				C2F0E455239A99C20043774E /* Assets.xcassets */,
 				C2F0E457239A99C20043774E /* LaunchScreen.storyboard */,
@@ -200,9 +231,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F0E451239A99C00043774E /* ViewController.swift in Sources */,
+				C2E04F94239AD2BE00B39195 /* AirportsNearbyRouter.swift in Sources */,
+				C2E04F97239AD2BE00B39195 /* AirportsNearbyInteractor.swift in Sources */,
+				C2E04F93239AD2BE00B39195 /* AirportsNearbyWorker.swift in Sources */,
 				C2F0E44D239A99C00043774E /* AppDelegate.swift in Sources */,
+				C2E04F92239AD2BE00B39195 /* AirportsNearbyPresenter.swift in Sources */,
+				C2E04F95239AD2BE00B39195 /* AirportsNearbyModels.swift in Sources */,
 				C2F0E44F239A99C00043774E /* SceneDelegate.swift in Sources */,
+				C2E04F96239AD2BE00B39195 /* AirportsNearbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
