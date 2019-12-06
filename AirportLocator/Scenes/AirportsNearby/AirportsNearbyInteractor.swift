@@ -10,11 +10,11 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import CoreLocation
 
 protocol AirportsNearbyBusinessLogic
 {
-  func doSomething(request: AirportsNearby.Something.Request)
+  func showAirportsNearby(request: AirportsNearby.Request)
 }
 
 protocol AirportsNearbyDataStore
@@ -30,12 +30,10 @@ class AirportsNearbyInteractor: AirportsNearbyBusinessLogic, AirportsNearbyDataS
   
   // MARK: Do something
   
-  func doSomething(request: AirportsNearby.Something.Request)
-  {
+  func showAirportsNearby(request: AirportsNearby.Request) {
     worker = AirportsNearbyWorker()
-    worker?.doSomeWork()
     
-    let response = AirportsNearby.Something.Response()
-    presenter?.presentSomething(response: response)
+    let response = worker!.getNearbyAirports(request: request)
+    presenter?.presentSomething(response: response!)
   }
 }

@@ -10,11 +10,20 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import CoreLocation
 
 class AirportsNearbyWorker
 {
-  func doSomeWork()
-  {
-  }
+    /// Gets the airports near a location within the radius
+    /// - Parameter request: Request containing the location and search radius
+    func getNearbyAirports(request: AirportsNearby.Request) -> AirportsNearby.Response? {
+        let responseJson = ALResponseMock.airportsNearbyMockResponse
+        do {
+            let response = try JSONDecoder().decode(AirportsNearby.Response.self, from: responseJson.data(using: .utf8)!)
+            return response
+        } catch {
+            debugPrint("Failed to convert JSON to response object")
+            return nil
+        }
+    }
 }

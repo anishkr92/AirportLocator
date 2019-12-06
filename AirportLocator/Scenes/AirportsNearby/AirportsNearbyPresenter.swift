@@ -14,18 +14,17 @@ import UIKit
 
 protocol AirportsNearbyPresentationLogic
 {
-  func presentSomething(response: AirportsNearby.Something.Response)
+    func presentSomething(response: AirportsNearby.Response)
 }
 
 class AirportsNearbyPresenter: AirportsNearbyPresentationLogic
 {
-  weak var viewController: AirportsNearbyDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: AirportsNearby.Something.Response)
-  {
-    let viewModel = AirportsNearby.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: AirportsNearbyDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentSomething(response: AirportsNearby.Response) {
+        let viewModel = AirportsNearby.ViewModel()
+        viewController?.displaySomething(viewModel: viewModel)
+    }
 }

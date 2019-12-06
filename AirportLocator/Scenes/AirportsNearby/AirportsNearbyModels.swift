@@ -10,22 +10,106 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import CoreLocation
 
 enum AirportsNearby
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+    
+    // MARK: Request
+    struct Request {
+        let location: CLLocation
+        let radius: Int
     }
-    struct Response
-    {
+    
+    // MARK: Response
+    struct Response: Codable {
+        let results: [Result]
+        let status: String
+        
+        // MARK: Result
+        struct Result: Codable {
+            let geometry: Geometry
+            let icon: String
+            let id, name: String
+            let photos: [Photo]?
+            let placeID: String
+            let plusCode: PlusCode
+            let rating: Double
+            let reference: String
+            let scope: Scope
+            let types: [String]
+            let userRatingsTotal: Int
+            let vicinity: String
+            let openingHours: OpeningHours?
+            
+            enum CodingKeys: String, CodingKey {
+                case geometry, icon, id, name, photos
+                case placeID = "place_id"
+                case plusCode = "plus_code"
+                case rating, reference, scope, types
+                case userRatingsTotal = "user_ratings_total"
+                case vicinity
+                case openingHours = "opening_hours"
+            }
+        }
+        
+        // MARK: Geometry
+        struct Geometry: Codable {
+            let location: Location
+            let viewport: Viewport
+        }
+        
+        // MARK: Location
+        struct Location: Codable {
+            let lat, lng: Double
+        }
+        
+        // MARK: Viewport
+        struct Viewport: Codable {
+            let northeast, southwest: Location
+        }
+        
+        // MARK: OpeningHours
+        struct OpeningHours: Codable {
+            let openNow: Bool
+            
+            enum CodingKeys: String, CodingKey {
+                case openNow = "open_now"
+            }
+        }
+        
+        // MARK: Photo
+        struct Photo: Codable {
+            let height: Int
+            let htmlAttributions: [String]
+            let photoReference: String
+            let width: Int
+            
+            enum CodingKeys: String, CodingKey {
+                case height
+                case htmlAttributions = "html_attributions"
+                case photoReference = "photo_reference"
+                case width
+            }
+        }
+        
+        // MARK: PlusCode
+        struct PlusCode: Codable {
+            let compoundCode, globalCode: String
+            
+            enum CodingKeys: String, CodingKey {
+                case compoundCode = "compound_code"
+                case globalCode = "global_code"
+            }
+        }
+        
+        enum Scope: String, Codable {
+            case google = "GOOGLE"
+        }
     }
-    struct ViewModel
-    {
+    
+    // MARK: View Model
+    struct ViewModel {
+        
     }
-  }
 }
