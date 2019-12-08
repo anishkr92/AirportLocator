@@ -10,7 +10,7 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import CoreLocation
 
 protocol AirportsNearbyPresentationLogic
 {
@@ -24,7 +24,22 @@ class AirportsNearbyPresenter: AirportsNearbyPresentationLogic
     // MARK: Do something
     
     func presentAirportsOnMap(response: AirportsNearby.Response?) {
-        let viewModel = AirportsNearby.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        let viewModel = AirportsNearby.ViewModel(findLocation: CLLocationCoordinate2D())
+
+        if let response = response {
+            let position = response.search.context.location.position
+            viewModel.findLocation = CLLocationCoordinate2D(latitude: position[0], longitude: position[1])
+            
+            for item in response.results.items {
+                let location = CLLocationCoordinate2D(latitude: item.position[0], longitude: item.position[1])
+                let distanceInKm = Float(item.distance) / 1000.0
+                let distanceString = item.distance >= 1000 ? String(format: "%.2f km", distanceInKm) : String(format: "%d metres", item.distance)
+                
+                let aiportVM = AirportsNearby.ViewModel.AirportData(id: item.id, title: item.title, location: location, distance: item.distance, distanceString: distanceString)
+                viewModel.airports.append(aiportVM)
+            }
+        }
+        
+        viewController?.displayAirportAnnotations(viewModel: viewModel)
     }
 }
