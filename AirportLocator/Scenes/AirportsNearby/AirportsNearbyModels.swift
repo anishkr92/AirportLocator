@@ -17,99 +17,81 @@ enum AirportsNearby
     
     // MARK: Request
     struct Request {
-        let location: CLLocation
-        let radius: Int
+        let location: CLLocationCoordinate2D
     }
     
-    // MARK: Response
+    // MARK: - Response
     struct Response: Codable {
-        let results: [Result]
-        let status: String
+        let results: Results
+        let search: Search
         
-        // MARK: Result
-        struct Result: Codable {
-            let geometry: Geometry
+        // MARK: - Results
+        struct Results: Codable {
+            let items: [Item]
+        }
+        
+        // MARK: - Item
+        struct Item: Codable {
+            let position: [Double]
+            let distance: Int
+            let title: String
+            let averageRating: Int
+            let category: Category
             let icon: String
-            let id, name: String
-            let photos: [Photo]?
-            let placeID: String
-            let plusCode: PlusCode
-            let rating: Double
-            let reference: String
-            let scope: Scope
-            let types: [String]
-            let userRatingsTotal: Int
-            let vicinity: String
-            let openingHours: OpeningHours?
-            
-            enum CodingKeys: String, CodingKey {
-                case geometry, icon, id, name, photos
-                case placeID = "place_id"
-                case plusCode = "plus_code"
-                case rating, reference, scope, types
-                case userRatingsTotal = "user_ratings_total"
-                case vicinity
-                case openingHours = "opening_hours"
-            }
+            let vicinity, type: String
+            let href: String
+            let id: String
         }
         
-        // MARK: Geometry
-        struct Geometry: Codable {
+        // MARK: - Category
+        struct Category: Codable {
+            let id, title: String
+            let href: String
+            let type, system: String
+        }
+        
+        // MARK: - Search
+        struct Search: Codable {
+            let context: Context
+        }
+        
+        // MARK: - Context
+        struct Context: Codable {
             let location: Location
-            let viewport: Viewport
+            let type: String
+            let href: String
         }
         
-        // MARK: Location
+        // MARK: - Location
         struct Location: Codable {
-            let lat, lng: Double
+            let position: [Double]
+            let address: Address
         }
         
-        // MARK: Viewport
-        struct Viewport: Codable {
-            let northeast, southwest: Location
-        }
-        
-        // MARK: OpeningHours
-        struct OpeningHours: Codable {
-            let openNow: Bool
-            
-            enum CodingKeys: String, CodingKey {
-                case openNow = "open_now"
-            }
-        }
-        
-        // MARK: Photo
-        struct Photo: Codable {
-            let height: Int
-            let htmlAttributions: [String]
-            let photoReference: String
-            let width: Int
-            
-            enum CodingKeys: String, CodingKey {
-                case height
-                case htmlAttributions = "html_attributions"
-                case photoReference = "photo_reference"
-                case width
-            }
-        }
-        
-        // MARK: PlusCode
-        struct PlusCode: Codable {
-            let compoundCode, globalCode: String
-            
-            enum CodingKeys: String, CodingKey {
-                case compoundCode = "compound_code"
-                case globalCode = "global_code"
-            }
-        }
-        
-        enum Scope: String, Codable {
-            case google = "GOOGLE"
+        // MARK: - Address
+        struct Address: Codable {
+            let text, street, postalCode, district: String
+            let city, county, stateCode, country: String
+            let countryCode: String
         }
     }
     
     // MARK: View Model
-    struct ViewModel {
+    class ViewModel {
         
+        var findLocation: CLLocationCoordinate2D
+        var airports = [AirportData]()
+        
+        init(findLocation: CLLocationCoordinate2D) {
+            self.findLocation = findLocation
+        }
+        
+        struct AirportData {
+            let id: String
+            let title: String
+            let location: CLLocationCoordinate2D
+            let distance: Int
+            let distanceString: String?
+        }
     }
 }

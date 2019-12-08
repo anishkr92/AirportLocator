@@ -16,20 +16,21 @@ import MapKit
 
 protocol AirportsNearbyDisplayLogic: class
 {
-    func displaySomething(viewModel: AirportsNearby.ViewModel)
+    func displayAirportAnnotations(viewModel: AirportsNearby.ViewModel)
 }
 
 class AirportsNearbyViewController: UIViewController, AirportsNearbyDisplayLogic
 {
     var interactor: AirportsNearbyBusinessLogic?
     var router: (NSObjectProtocol & AirportsNearbyRoutingLogic & AirportsNearbyDataPassing)?
-
+    
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: Variables
     let locationManager = CLLocationManager()
+    var airportAnnotations = [MKAnnotation]()
 
     // MARK: Object lifecycle
     
@@ -73,6 +74,7 @@ class AirportsNearbyViewController: UIViewController, AirportsNearbyDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
     }
     
@@ -88,26 +90,50 @@ class AirportsNearbyViewController: UIViewController, AirportsNearbyDisplayLogic
     
     // MARK: Setup map view
     func setUpMapView() {
-        mapView.showsBuildings = true
-        mapView.showsCompass = true
         mapView.showsUserLocation = true
-        mapView.showsScale = true
-        
-        mapView.camera.pitch = 80.0
-        mapView.camera.altitude = 150.0
-        mapView.camera.heading = 45.0
-
-        mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
     // MARK: Do something
     
     func showNeabyAirports() {
-        let request = AirportsNearby.Request(location: CLLocation(), radius: ALConstants.searchRadius)
+        let location = (locationManager.location ?? CLLocation()).coordinate
+        let request = AirportsNearby.Request(location: location)
         interactor?.showAirportsNearby(request: request)
     }
     
-    func displaySomething(viewModel: AirportsNearby.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayAirportAnnotations(viewModel: AirportsNearby.ViewModel) {
+        airportAnnotations = [MKAnnotation]()
+        for airport in viewModel.airports {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = airport.location
+            annotation.title = airport.title
+            annotation.subtitle = airport.distanceString
+            
+            airportAnnotations.append(annotation)
+        }
+
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(self.airportAnnotations)
+            self.mapView.fitAll(annotations: self.airportAnnotations, includeCurrentLocation: true, animated: true)
+            self.setUpMapView()
+        }
+    }
+}
+
+extension AirportsNearbyViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let reuseIdentifier = "airportAnnotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
     }
 }

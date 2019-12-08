@@ -14,26 +14,25 @@ import CoreLocation
 
 protocol AirportsNearbyBusinessLogic
 {
-  func showAirportsNearby(request: AirportsNearby.Request)
+    func showAirportsNearby(request: AirportsNearby.Request)
 }
 
 protocol AirportsNearbyDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class AirportsNearbyInteractor: AirportsNearbyBusinessLogic, AirportsNearbyDataStore
 {
-  var presenter: AirportsNearbyPresentationLogic?
-  var worker: AirportsNearbyWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func showAirportsNearby(request: AirportsNearby.Request) {
-    worker = AirportsNearbyWorker()
+    var presenter: AirportsNearbyPresentationLogic?
+    var worker: AirportsNearbyWorker?
     
-    let response = worker!.getNearbyAirports(request: request)
-    presenter?.presentAirportsOnMap(response: response)
-  }
+    // MARK: Do something
+    
+    func showAirportsNearby(request: AirportsNearby.Request) {
+        worker = AirportsNearbyWorker()
+        worker!.getNearbyAirports(request: request) { [weak self] (response) in
+            self?.presenter?.presentAirportsOnMap(response: response)
+        }
+    }
 }

@@ -10,20 +10,35 @@
 //  see http://clean-swift.com
 //
 
-import CoreLocation
+import Alamofire
+import AlamofireMapper
 
 class AirportsNearbyWorker
 {
     /// Gets the airports near a location within the radius
     /// - Parameter request: Request containing the location and search radius
-    func getNearbyAirports(request: AirportsNearby.Request) -> AirportsNearby.Response? {
-        let responseJson = ALResponseMock.airportsNearbyMockResponse
-        do {
-            let response = try JSONDecoder().decode(AirportsNearby.Response.self, from: responseJson.data(using: .utf8)!)
-            return response
-        } catch {
-            debugPrint("Failed to convert JSON to response object: \(error)")
-            return nil
+    /// - Parameter completion: completion handler to handle the response of the API
+    func getNearbyAirports(request: AirportsNearby.Request, completion: @escaping (AirportsNearby.Response?) -> Void) {
+        var parameters = [String: Any]()
+        parameters[ALConstants.QueryKeys.location] = "\(request.location.latitude),\(request.location.longitude)"
+        parameters[ALConstants.QueryKeys.category] = "airport"
+        parameters[ALConstants.QueryKeys.applicationID] = ALConstants.AppIdentifiers.hereMaps
+        parameters[ALConstants.QueryKeys.applicationCode] = ALConstants.ApiKeys.hereMaps
+        
+        Alamofire.request(ALConstants.ApiEndpoints.HereMaps.discoverPlaces, method: .get, parameters: parameters).responseObject {
+            (dataResponse: DataResponse<AirportsNearby.Response>) in
+            guard dataResponse.result.isSuccess else {
+                if let apiError = dataResponse.result.error {
+                    debugPrint("Failed to fetch nearby airports with error: \(apiError)")
+                } else {
+                    debugPrint("Failed to fetch nearby airports with unknown error")
+                }
+                
+                completion(nil)
+                return
+            }
+            
+            completion(dataResponse.result.value)
         }
     }
 }
