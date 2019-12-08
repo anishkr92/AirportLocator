@@ -12,8 +12,6 @@ struct ALResponseMock {
     
     static let airportsNearbyMockResponse = """
     {
-        "html_attributions": [],
-        "next_page_token": "CqQCHgEAACG50iXROcuGfFO7ZgzDcBvSlc_jyn5kRrPD8qfba7VWC7nYigidNReBUetlw25Dur78O1pEg0MXpjN87tQ1UZYE7eWlGXylqy9XvW_s-6i_lqpEPGYPWGM2vJYCcJMNlRa9iYStF-32zbJ91jhTLItwQB-1Oex1U3yf9Ix4WObQGk-M-NHJynIlTUZGYXfm3-XleOls5Z9esmQax5LUK-axW7R7EwkT_ae8JqabzJFdiRv-0EIhmRLK_-k_vJzvpCdRkGaiIh9JTCOOIsSGcBTGAbydbmp-nyCvisfyoF-bN6zZg3QqoM0jOR5dLGfDN5iKbYN4Ce9uTwOKiuDL7yHgpaFVyToVaCNUNclZQAdkhuoqTlB_STsBf8pNrh2VDxIQxDJ6he6bGq_yJgv17SU8lRoUzY3CgIkgB3nqcQabnYTxUwVdu4o",
         "results": [
             {
                 "geometry": {
@@ -39,7 +37,7 @@ struct ALResponseMock {
                     {
                         "height": 2176,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/107523867380639497578\">Chethan Gowda</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/107523867380639497578\\">Chethan Gowda</a>"
                         ],
                         "photo_reference": "CmRaAAAAMyiKMfKroJaCppBRlBVlEeCVNoPxpf9Z_ApcsfTm08BXzFruamiuX13KPe-N-iOYN2c4KxJNHnVKEVoLF9RDjQ8jlYPGPFSyj8d0lIpc75ffxvoVBFV6pY65oI5zQvRcEhB183lw6F-uIctOHQosJDUHGhRS1VrCWHcxbzZBlBLtuT9CnIrRhA",
                         "width": 4608
@@ -88,7 +86,7 @@ struct ALResponseMock {
                     {
                         "height": 523,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/108652980111186945677\">Society Airport Cabs (Airport Taxi Bangalore@499, Outstation Taxi Cabs)</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/108652980111186945677\\">Society Airport Cabs (Airport Taxi Bangalore@499, Outstation Taxi Cabs)</a>"
                         ],
                         "photo_reference": "CmRaAAAAN2XzNYSrAM_Jp3_uYj7OjmyucuqjmnfPE1B2iNotREvrLpNk_v0EN2TcZr_PUcpu1eQUs4d9ObYzkqHD5pYraDM7eUoDA2GffQxwlIn8KjMzpW7cp-8ir6ISudVIX2ysEhAKl_DaP_AFUT7t3j8CInPyGhQa5xVuExz1DjxFPx9nziI8EkbgdQ",
                         "width": 929
@@ -138,7 +136,7 @@ struct ALResponseMock {
                     {
                         "height": 480,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/116869091064335399414\">BK Gajendra</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/116869091064335399414\\">BK Gajendra</a>"
                         ],
                         "photo_reference": "CmRaAAAAOZrOzuSwytmPZgAza04ldZbC9Q4SxM19ui-ACTXlAW3HHYinYCrDCRlndgXYiKAAEgfVMzwjDvTkTxvNGG5EDZy1Oy_Y5YiNv-tdtPNw7FmIYrW57q0siuC3vgcOsQUtEhDTyx7k67SGsRS21SuBNTl1GhQJmgW7IZwrnDrLWK8L-ZorZEiBDw",
                         "width": 640
@@ -185,7 +183,7 @@ struct ALResponseMock {
                     {
                         "height": 3456,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/101547446512109414785\">Archith Narasimhan</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/101547446512109414785\\">Archith Narasimhan</a>"
                         ],
                         "photo_reference": "CmRaAAAAU6jwHBw9ZC9OQHpmla5HgCU8yVWdyKO3X4_QRXBpSWUt_p1ssxLC936Znx0V_DhsRgeqizbOw1ObqTPlwkbgb7WlTXDjSw7C8mZ5aXC2tjQoXIVi9gj0q76w2z4Xy5LxEhCq_e1VamG2eCaioodOj5RmGhTTy7cYexNatTKnpaqEyLeEN6lhRw",
                         "width": 4608
@@ -234,7 +232,7 @@ struct ALResponseMock {
                     {
                         "height": 720,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/109566432675979536879\">Airport Taxi Bangalore and Outstation Car Rental Bangalore Best Travels in Bangalore</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/109566432675979536879\\">Airport Taxi Bangalore and Outstation Car Rental Bangalore Best Travels in Bangalore</a>"
                         ],
                         "photo_reference": "CmRaAAAA6PsdUPlfP2EGDeUvxWvGBbGv70EqcA2lvvt0drmhuJpR1-s_VT3AVx-JKxTnVHZFNSLg3G3P2F4a3mcLD3GVSJWKoWco4YL7DPFK-_i-oAKaveYwZRH9qKmmejK6hACFEhBsSEQ-9pZeZYIOYd7FMEdeGhQLUNp5aBM_rECjw5stxnazpakEDA",
                         "width": 960
@@ -286,7 +284,7 @@ struct ALResponseMock {
                     {
                         "height": 1634,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/101755495243687549329\">Akshay Patil</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/101755495243687549329\\">Akshay Patil</a>"
                         ],
                         "photo_reference": "CmRaAAAAUPs_UUU6HNoPjDJk3TNsEVHghqzvYGUHHfKHdldv812fRpb92umxVHsJfyNq3fOecG2fOlYJipA8imtQglgdrErnGR42N95icRxKGqBe42SQwnvgwnahwGNTYQ3VKzs_EhBdm0xzL21j6b8yDsYHiThGGhQ6cWNPeXV7sM8Vgjgc-dn39KU6Vw",
                         "width": 2048
@@ -372,7 +370,7 @@ struct ALResponseMock {
                     {
                         "height": 3024,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/114694662367819064501\">hari krishnan</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/114694662367819064501\\">hari krishnan</a>"
                         ],
                         "photo_reference": "CmRaAAAAbeb9u2DQ04wMAiLruDGpdOarIlALfc_z5J4tm_jrATu3qq5YL7nYqM-cP2ZHJyExs7Q2TiIQF3JbDY6LtOos7ITK4pU-esvNy3IthmTpRzf0SxGG7wpykyJVZm4XCBAREhBLoruym8Npd8iZ7OMrE0uxGhT8ardEwcw0vkElkRqLjbia4BE2lg",
                         "width": 4032
@@ -421,7 +419,7 @@ struct ALResponseMock {
                     {
                         "height": 390,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/103805870126823794852\">Ksm travels</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/103805870126823794852\\">Ksm travels</a>"
                         ],
                         "photo_reference": "CmRaAAAAZfpkQyAV_6ezea0rJkrxkDzlgt-7yJIiEZoYApm-vRiafdEgzqe6sZfWYs_xnrV8zq-sd_3pz1JbXIb9kHLdcBEoljZNKMj3Z4It1A4_kTNHdlwf6JamnXna7SdBHcCJEhCH7wN_zk6k5sqUEpNq-nd1GhR3opOD9KxDAZsV0e3DwbpEAVRoXQ",
                         "width": 390
@@ -470,7 +468,7 @@ struct ALResponseMock {
                     {
                         "height": 384,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/116139321782306996676\">Muskan Tours&amp;Travels Airport Taxi</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/116139321782306996676\\">Muskan Tours&amp;Travels Airport Taxi</a>"
                         ],
                         "photo_reference": "CmRaAAAA4ZOHjEKLvfhTXZJKZNRo9J4Dw_Bu58K-NscUL9UKK9S8olSa3KEJx-bW51Eeiz30zP_5xPYjo8IaipmLlJ2xgqFrTz3pO2B2AxhH2E8yJaAmPwGwTCP8-upGmoyHvsFuEhBHT3QFL954yXOH8YGjjFMoGhTBkMXNVeL4SeJ2AOEy4iVtpdssAA",
                         "width": 615
@@ -631,7 +629,7 @@ struct ALResponseMock {
                     {
                         "height": 1280,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/110572909876794220974\">Harsh Verma</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/110572909876794220974\\">Harsh Verma</a>"
                         ],
                         "photo_reference": "CmRaAAAA4sYghtr0Abb7gV_0O0n9GKybg043V9ieqYcn1i3H2GxfhA9aG2iBl-WILLOpGxrMpjxUVXTuUW9lrMvyTbNln2wOPj8kXJ3pmA7-yra__kAon2BNh4qFj4LY6h3xYgfWEhCSImGXsEKTeovNtlbKHFKjGhQxunMtfTb0JYj4j_MdOAhoBNld0g",
                         "width": 593
@@ -718,7 +716,7 @@ struct ALResponseMock {
                     {
                         "height": 379,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/113751712718630705931\">Ijetzz Logistics Private Limited</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/113751712718630705931\\">Ijetzz Logistics Private Limited</a>"
                         ],
                         "photo_reference": "CmRaAAAAEnq1NVHSeNwJdvMZ49aC1wNF6EI4A38U9wngrvsP7AbWdU2aYGjDlTmAxOlMQq9KSkh6TyPN80aiazSFXPCMdvMaj-KzXpIOrO_6Zd_I1nwHDVF1pIHy7lMfRmuLCJkwEhAvgCGIZDRCTmm6o4uPzVoXGhT4wL9uXL-O2JdMHsvmknB3GPcGaQ",
                         "width": 524
@@ -767,7 +765,7 @@ struct ALResponseMock {
                     {
                         "height": 359,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/112506660332919307251\">Rajadhani Tours and Travels and Online Airport Bookings</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/112506660332919307251\\">Rajadhani Tours and Travels and Online Airport Bookings</a>"
                         ],
                         "photo_reference": "CmRaAAAAU_5PNLJYqrdgvtJQcpPx7q89qJpXIdGtZlXWIyav9g_IfU_jXBWTXhNfiglCl6cvZkSFB46HOXxVsq1XigceGZ5DI3Y0QWWeL_sLRSeqwRvpYkRXg0uM4HS188-DqkyTEhCRU7Mryi-U6ZLQf8pOP4_CGhTLBHHZ-g4dYdxYQX2A7Lok32BCDQ",
                         "width": 640
@@ -817,7 +815,7 @@ struct ALResponseMock {
                     {
                         "height": 780,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/104074042923599406836\">ORANGE MEDIA</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/104074042923599406836\\">ORANGE MEDIA</a>"
                         ],
                         "photo_reference": "CmRaAAAAh62FXYuCb6IA4CYS7EcI-k77BGSrTtBwnWClCyZpd5sHMhC3jS_jkXj5YHKUXNbK9DrXo4kC2ASh9yYQCHCeSJr4Uu5cDH6qZBVW2IeTTEwjD7F8JTfLTpfa_L6eSa6EEhAyXQxGLmh3oeaBL-hYNK_EGhTBDJjK7Jmpx_JPh5oL7DhCMuBcTw",
                         "width": 1040
@@ -866,7 +864,7 @@ struct ALResponseMock {
                     {
                         "height": 1536,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/102650279312198764146\">IESP - Institute for Excellence in services &amp; Planning</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/102650279312198764146\\">IESP - Institute for Excellence in services &amp; Planning</a>"
                         ],
                         "photo_reference": "CmRaAAAA-QSES3FkPGka2fvytW-hbz02t2gOtNnz5M0j0xK6Oz0jdv0bOKsCNhqhj7r_bAJ1fFvJ8uDH8quKv-Agj318LN5BS-mxbv9JVdQhDgtWID-XyJaBBiy8JUITfJq8Vi8SEhCObd9Cz9wx0o5IjbUTIP2aGhT0HiilPFRW_mDoP8Cjp6TsCQ75Zg",
                         "width": 2048
@@ -912,7 +910,7 @@ struct ALResponseMock {
                     {
                         "height": 3024,
                         "html_attributions": [
-                            "<a href=\"https://maps.google.com/maps/contrib/103976376785205978740\">Suhas Prabhu HS</a>"
+                            "<a href=\\"https://maps.google.com/maps/contrib/103976376785205978740\\">Suhas Prabhu HS</a>"
                         ],
                         "photo_reference": "CmRaAAAADmbYM8nuZOncAGBBsQBWJD_RMlCDSpY-byT44GtN1M-rI87z9KolaBNDDg_liiwQC9UdrK3x0XDjK1_dXhasAFSd6mzJVq1EDXysxH9FadKmYrFqWcR0RbGP4l9xEXdJEhASfuDPCd2JAjpWKO6XBCRxGhQH1OFWLpT03AAWpVzLf9aL8RXLEg",
                         "width": 4032

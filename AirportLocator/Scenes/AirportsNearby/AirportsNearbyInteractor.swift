@@ -34,6 +34,6 @@ class AirportsNearbyInteractor: AirportsNearbyBusinessLogic, AirportsNearbyDataS
     worker = AirportsNearbyWorker()
     
     let response = worker!.getNearbyAirports(request: request)
-    presenter?.presentSomething(response: response!)
+    presenter?.presentAirportsOnMap(response: response)
   }
 }

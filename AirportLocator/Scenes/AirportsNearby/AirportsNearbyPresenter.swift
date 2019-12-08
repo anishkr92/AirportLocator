@@ -14,7 +14,7 @@ import UIKit
 
 protocol AirportsNearbyPresentationLogic
 {
-    func presentSomething(response: AirportsNearby.Response)
+    func presentAirportsOnMap(response: AirportsNearby.Response?)
 }
 
 class AirportsNearbyPresenter: AirportsNearbyPresentationLogic
@@ -23,7 +23,7 @@ class AirportsNearbyPresenter: AirportsNearbyPresentationLogic
     
     // MARK: Do something
     
-    func presentSomething(response: AirportsNearby.Response) {
+    func presentAirportsOnMap(response: AirportsNearby.Response?) {
         let viewModel = AirportsNearby.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }

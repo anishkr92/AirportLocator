@@ -22,7 +22,7 @@ class AirportsNearbyWorker
             let response = try JSONDecoder().decode(AirportsNearby.Response.self, from: responseJson.data(using: .utf8)!)
             return response
         } catch {
-            debugPrint("Failed to convert JSON to response object")
+            debugPrint("Failed to convert JSON to response object: \(error)")
             return nil
         }
     }

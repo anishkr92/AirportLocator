@@ -12,6 +12,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 protocol AirportsNearbyDisplayLogic: class
 {
@@ -22,7 +23,14 @@ class AirportsNearbyViewController: UIViewController, AirportsNearbyDisplayLogic
 {
     var interactor: AirportsNearbyBusinessLogic?
     var router: (NSObjectProtocol & AirportsNearbyRoutingLogic & AirportsNearbyDataPassing)?
+
+    // MARK: Outlets
     
+    @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: Variables
+    let locationManager = CLLocationManager()
+
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -65,14 +73,36 @@ class AirportsNearbyViewController: UIViewController, AirportsNearbyDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setUpMapView()
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showNeabyAirports()
+    }
+    
+    // MARK: Setup map view
+    func setUpMapView() {
+        mapView.showsBuildings = true
+        mapView.showsCompass = true
+        mapView.showsUserLocation = true
+        mapView.showsScale = true
+        
+        mapView.camera.pitch = 80.0
+        mapView.camera.altitude = 150.0
+        mapView.camera.heading = 45.0
+
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
+    func showNeabyAirports() {
         let request = AirportsNearby.Request(location: CLLocation(), radius: ALConstants.searchRadius)
         interactor?.showAirportsNearby(request: request)
     }
